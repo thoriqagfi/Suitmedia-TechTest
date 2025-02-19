@@ -11,6 +11,10 @@ extension UIViewController {
     func setupNavigationBar(title: String, backButtonColor: UIColor = .purple) {
         self.title = title
         
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.titleTextAttributes = [.font: UIFont.poppins(ofSize: 18, weight: .bold)]
+        
         let backButton = UIBarButtonItem(
             image: UIImage(systemName: "chevron.left"),
             style: .plain,
@@ -24,7 +28,7 @@ extension UIViewController {
         bottomBorder.backgroundColor = UIColor.lightGray
         bottomBorder.translatesAutoresizingMaskIntoConstraints = false
         navigationController?.navigationBar.addSubview(bottomBorder)
-
+        
         NSLayoutConstraint.activate([
             bottomBorder.heightAnchor.constraint(equalToConstant: 0.5),
             bottomBorder.bottomAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor),
@@ -32,7 +36,7 @@ extension UIViewController {
             bottomBorder.trailingAnchor.constraint(equalTo: navigationController!.navigationBar.trailingAnchor)
         ])
     }
-
+    
     @objc private func handleBackButtonTapped() {
         navigationController?.popViewController(animated: true)
     }

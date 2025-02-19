@@ -41,7 +41,14 @@ final class FirstScreenViewController: UIViewController {
     }
     
     @objc private func handleNextButtonTapped() {
-        let secondScreenViewModel = SecondScreenViewModel(userName: firstScreenViewModel.userName)
+        let userName = firstScreenViewModel.userName.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if userName.isEmpty {
+            showAlert(title: "Input Required", message: "Please enter your name to continue.")
+            return
+        }
+        
+        let secondScreenViewModel = SecondScreenViewModel(userName: userName)
         let secondScreenViewController = SecondScreenViewController(secondScreenViewModel: secondScreenViewModel)
         navigationController?.pushViewController(secondScreenViewController, animated: true)
     }

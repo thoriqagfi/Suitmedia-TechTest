@@ -24,6 +24,7 @@ final class ReusableInput: UITextField {
         self.textColor = .black
         
         self.layer.borderColor = UIColor.gray.cgColor
+        self.font = UIFont.poppins(ofSize: 16, weight: .regular)
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 12
         self.layer.masksToBounds = true

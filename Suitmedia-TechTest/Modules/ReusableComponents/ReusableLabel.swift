@@ -12,7 +12,7 @@ final class ReusableLabel: UILabel {
         super.init(frame: .zero)
         self.text = text
         self.textColor = .label
-        self.font = .systemFont(ofSize: fontSize, weight: weight)
+        self.font = UIFont.poppins(ofSize: fontSize, weight: weight)
         self.textAlignment = textAlignment
         self.numberOfLines = 0
         self.translatesAutoresizingMaskIntoConstraints = false

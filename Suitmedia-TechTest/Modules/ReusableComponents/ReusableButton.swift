@@ -25,6 +25,7 @@ final class ReusableButton: UIButton {
         super.init(frame: .zero)
         self.setTitle(buttonText, for: .normal)
         self.setTitleColor(.white, for: .normal)
+        titleLabel?.font = UIFont.poppins(ofSize: 14, weight: .regular)
         self.isUserInteractionEnabled = true
         self.isEnabled = true
         self.configureButtonColor()

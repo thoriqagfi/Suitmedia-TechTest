@@ -21,14 +21,14 @@ final class UserTableViewCell: UITableViewCell {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.poppins(ofSize: 16, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let emailLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.font = UIFont.poppins(ofSize: 10, weight: .regular)
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

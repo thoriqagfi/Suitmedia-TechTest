@@ -14,16 +14,7 @@ final class ThirdScreenView: UIView {
         tableView.register(UserTableViewCell.self, forCellReuseIdentifier: "UserCell")
         return tableView
     }()
-    
-    lazy var emptyLabel: UILabel = {
-        let label = UILabel()
-        label.text = "No Users Available"
-        label.textAlignment = .center
-        label.textColor = .gray
-        label.isHidden = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    lazy var emptyLabel = ReusableLabel(text: "No Users Available", fontSize: 16, weight: .regular)
 
     init() {
         super.init(frame: .zero)

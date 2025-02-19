@@ -14,15 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-
-        // Create a UIWindow and set it as the main window
+        
         window = UIWindow(windowScene: windowScene)
 
-        // Create FirstScreenViewController and embed it in UINavigationController
         let firstScreenVC = FirstScreenViewController()
         let navController = UINavigationController(rootViewController: firstScreenVC)
 
-        // Set the navigation controller as the root
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
     }

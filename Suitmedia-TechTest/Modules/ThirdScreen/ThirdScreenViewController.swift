@@ -14,6 +14,7 @@ final class ThirdScreenViewController: UIViewController {
     private lazy var thirdScreenView = ThirdScreenView()
     private let viewModel = ThirdScreenViewModel()
     private var cancellables: Set<AnyCancellable> = []
+    var onUserSelected: ((String) -> Void)?
 
     override func loadView() {
         view = thirdScreenView
@@ -77,5 +78,11 @@ extension ThirdScreenViewController: UITableViewDelegate, UITableViewDataSource 
         if indexPath.row == viewModel.users.count - 1 {
             viewModel.loadMoreUsers()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedUser = viewModel.users[indexPath.row]
+        onUserSelected?(selectedUser.first_name + " " + selectedUser.last_name)
+        navigationController?.popViewController(animated: true)
     }
 }

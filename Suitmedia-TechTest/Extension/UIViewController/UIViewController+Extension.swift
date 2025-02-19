@@ -11,7 +11,6 @@ extension UIViewController {
     func setupNavigationBar(title: String, backButtonColor: UIColor = .purple) {
         self.title = title
         
-        // Back button
         let backButton = UIBarButtonItem(
             image: UIImage(systemName: "chevron.left"),
             style: .plain,
@@ -20,8 +19,7 @@ extension UIViewController {
         )
         backButton.tintColor = backButtonColor
         navigationItem.leftBarButtonItem = backButton
-
-        // Add gray bottom border
+        
         let bottomBorder = UIView()
         bottomBorder.backgroundColor = UIColor.lightGray
         bottomBorder.translatesAutoresizingMaskIntoConstraints = false

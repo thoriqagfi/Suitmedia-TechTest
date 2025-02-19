@@ -36,11 +36,15 @@ final class SecondScreenViewController: UIViewController {
     }
     
     private func setupBindings() {
-        secondScreenView.buttonChooseUser.addTarget(self, action: #selector(handleChooseUserButtonTapped), for: .touchUpInside)
+        secondScreenView.buttonChooseUser.addTarget(self, action: #selector(didTapChooseUser), for: .touchUpInside)
     }
     
-    @objc private func handleChooseUserButtonTapped() {
-        let thirdScreenViewController = ThirdScreenViewController()
-        navigationController?.pushViewController(thirdScreenViewController, animated: true)
+    @objc private func didTapChooseUser() {
+        let thirdScreenVC = ThirdScreenViewController()
+        thirdScreenVC.onUserSelected = { [weak self] selectedUserName in
+            self?.secondScreenViewModel.selectedUserName = selectedUserName
+            self?.secondScreenView.updateSelectedUser(name: selectedUserName)
+        }
+        navigationController?.pushViewController(thirdScreenVC, animated: true)
     }
 }

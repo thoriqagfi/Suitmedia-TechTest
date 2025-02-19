@@ -9,8 +9,10 @@ import UIKit
 
 final class SecondScreenViewModel {
     @Published var userName: String
+    @Published var selectedUserName: String?
 
-    init(userName: String) {
+    init(userName: String, selectedUserName: String? = nil) {
         self.userName = userName
+        self.selectedUserName = selectedUserName
     }
 }
